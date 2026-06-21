@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bus Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="leaflet-rotatedmarker.js"></script>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+
+        #map-wrapper {
+            position: fixed;
+            inset: 0;   
+        }
+
+        #theMap {
+            width: 100%;
+            height: 100%;
+        }
+
+        #controls {
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-height: 85vh;
+            overflow-y: auto;
+            width: 150px;
+        }
+
+        
+        #controls label {
+            display: flex;
+            align-items: center;
+            padding: 12px 5px; 
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+
+        #controls label:last-child {
+            border-bottom: none;
+        }
+
+        #controls input[type="checkbox"] {
+            width: 20px; 
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        /* REQ 9 */
+
+        @media (max-width: 768px) { 
+            #controls {
+                top: auto;
+                bottom: 30px; 
+                left: 50%;
+                transform: translateX(-50%); 
+                right: auto;
+                width: 90%; 
+                max-height: 25vh; 
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 5px;
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            #controls label {
+                padding: 10px 2px;
+                justify-content: center;
+                border-bottom: none;
+                background: #f8f9fa;
+                border-radius: 6px;
+                margin: 2px;
+            }
+
+            #controls input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+                margin-right: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="map-wrapper">
+        <div id="controls">
+            <label><input class="routeCheck" type="checkbox" value="1" checked> 1</label>
+            <label><input class="routeCheck" type="checkbox" value="2" checked> 2</label>
+            <label><input class="routeCheck" type="checkbox" value="3" checked> 3</label>
+            <label><input class="routeCheck" type="checkbox" value="4" checked> 4</label>
+            <label><input class="routeCheck" type="checkbox" value="5" checked> 5</label>
+            <label><input type="checkbox" class="routeCheck" value="6A" checked> 6A</label>
+            <label><input type="checkbox" class="routeCheck" value="6B" checked> 6B</label>
+            <label><input type="checkbox" class="routeCheck" value="6C" checked> 6C</label>
+            <label><input type="checkbox" class="routeCheck" value="7A" checked> 7A</label>
+            <label><input type="checkbox" class="routeCheck" value="7B" checked> 7B</label>
+            <label><input type="checkbox" class="routeCheck" value="8" checked> 8</label>
+            <label><input type="checkbox" class="routeCheck" value="9A" checked> 9A</label>
+            <label><input type="checkbox" class="routeCheck" value="9B" checked> 9B</label>
+            <label><input type="checkbox" class="routeCheck" value="10A" checked> 10A</label>
+            <label><input type="checkbox" class="routeCheck" value="10B" checked> 10B</label>
+            <label><input type="checkbox" class="routeCheck" value="10C" checked> 10C</label>
+        </div>
+
+        <div id="theMap"></div>
+    </div>
+    <script src='main.js'></script>
+</body>
+</html>
